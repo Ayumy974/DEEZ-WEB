@@ -4,15 +4,29 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
 
-body {
-  width: 100%;
-  background-image: url("./../../MEDIAS/HP-img/guitariste.jpg");
-  background-repeat: no-repeat;
+body#bg-image {
+  background: url(./../../MEDIAS/HP-img/guitariste.jpg);
   background-size: cover;
+  background-attachment: fixed;
+}
+
+body#bg-image:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background-color: rgba(68, 68, 68, 0.65);
 }
 
 body header {
@@ -20,7 +34,7 @@ body header {
 }
 
 body header .navigation {
-  width: 80%;
+  width: 90%;
   margin: 0 auto;
   padding: 10px 0;
   display: -webkit-box;
@@ -63,8 +77,9 @@ body header ul li:hover {
   cursor: pointer;
 }
 
-main {
-  width: 80%;
+body main {
+  width: 90%;
+  margin-top: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -73,10 +88,17 @@ main {
           justify-content: flex-end;
 }
 
-main section {
-  width: 50%;
-  padding: 20px 10px;
+body main section {
+  width: 40%;
   border-radius: 8px;
-  background-color: white;
+  padding: 20px 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+body main section h1 {
+  text-align: center;
+  font-size: 1.75rem;
+  color: #F2F4F8;
+  letter-spacing: 1.2px;
 }
 /*# sourceMappingURL=style.css.map */

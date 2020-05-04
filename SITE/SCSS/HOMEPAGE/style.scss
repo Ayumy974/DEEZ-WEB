@@ -1,26 +1,27 @@
 @import './../GLOBALS-STYLES/colors';
 @import './../GLOBALS-STYLES/font.scss';
+@import './../GLOBALS-STYLES/config';
+
 
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: 16px;
-    font-family: $menuFont;
+    
 
 }
 
 body {
-    width: 100%;
-    background-image: url('./../../MEDIAS/HP-img/guitariste.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
+    height: 100vh;
+    font-size: 16px;
+    font-family: $menuFont;
+    @include background;
 
     // HEADER STYLE:
     header {
         background-color: $menuColor;
         .navigation {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             padding: 10px 0;
             display: flex;
@@ -48,17 +49,25 @@ body {
             }
         }
     }
-}
 
-// STYLE OF THE MAIN SECTION:
-main {
-    width: 80%;
-    display: flex;
-    justify-content: flex-end;
-    section {
-        width: 50%;
-        padding: 20px 10px;
-        border-radius: 8px;
-        background-color: white;
-    }
+    // STYLE OF THE MAIN SECTION:
+    main {
+        width: 90%;
+        margin-top: 50px;
+        display: flex;
+        justify-content: flex-end;
+        section {
+            width: 40%;
+            border-radius: 8px;
+            padding: 20px 10px;
+            background-color: rgba(0, 0, 0, 0.3);
+            h1 {
+                text-align: center;
+                font-size: 1.75rem;
+                color: $navColor;
+                letter-spacing: 1.2px;
+            }
+            
+        }
+    }    
 }
