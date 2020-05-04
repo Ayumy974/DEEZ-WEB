@@ -4,6 +4,7 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  font-size: 16px;
 }
 
 header {
@@ -26,10 +27,25 @@ header .navigation {
 }
 
 header ul {
+  width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   font-family: "Roboto", sans-serif;
   list-style: none;
+}
+
+header ul li {
+  font-size: 1.125rem;
+  letter-spacing: 1.1px;
+  color: #5A6A7A;
+}
+
+header ul li a {
+  font-size: 1.125rem;
+  letter-spacing: 1.1px;
 }
 /*# sourceMappingURL=style.css.map */

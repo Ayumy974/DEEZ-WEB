@@ -5,6 +5,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-size: 16px;
 }
 
 header {
@@ -18,8 +19,19 @@ header {
         justify-content: space-between;
     }
     ul {
+        width: 50%;
         display: flex;
+        justify-content: space-between;
         font-family: $menuFont;
         list-style: none;
+        li {
+            font-size: 1.125rem;
+            letter-spacing: 1.1px;
+            color: #5A6A7A;
+            a {
+                font-size: 1.125rem;
+                letter-spacing: 1.1px;
+            }
+        }
     }
 }
