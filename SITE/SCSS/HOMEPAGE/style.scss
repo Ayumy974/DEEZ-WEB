@@ -6,32 +6,59 @@
     padding: 0;
     box-sizing: border-box;
     font-size: 16px;
+    font-family: $menuFont;
+
 }
 
-header {
-    background-color: $menuColor;
-    .navigation {
-        width: 80%;
-        margin: 0 auto;
-        padding: 10px 0;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-    ul {
-        width: 50%;
-        display: flex;
-        justify-content: space-between;
-        font-family: $menuFont;
-        list-style: none;
-        li {
-            font-size: 1.125rem;
-            letter-spacing: 1.1px;
-            color: #5A6A7A;
-            a {
-                font-size: 1.125rem;
+body {
+    width: 100%;
+    background-image: url('./../../MEDIAS/HP-img/guitariste.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    // HEADER STYLE:
+    header {
+        background-color: $menuColor;
+        .navigation {
+            width: 80%;
+            margin: 0 auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        ul {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            li {
+                font-size: 1.25rem;
                 letter-spacing: 1.1px;
+                color: $navColor;
+                transition: all 0.5s ease;
+                a {
+                    font-size: 1.25rem;
+                    letter-spacing: 1.1px;
+                }
+            &:hover {
+                color: $hoverNavColor;
+                cursor: pointer;
+            }
             }
         }
+    }
+}
+
+// STYLE OF THE MAIN SECTION:
+main {
+    width: 80%;
+    display: flex;
+    justify-content: flex-end;
+    section {
+        width: 50%;
+        padding: 20px 10px;
+        border-radius: 8px;
+        background-color: white;
     }
 }
