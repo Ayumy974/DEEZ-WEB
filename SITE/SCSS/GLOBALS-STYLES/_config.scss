@@ -9,7 +9,6 @@ $background-opacity: 0.65;
             background: $home-image;
             background-size: cover;
             background-attachment: fixed;
-
             &:after {
                 content:'';
                 position: absolute;

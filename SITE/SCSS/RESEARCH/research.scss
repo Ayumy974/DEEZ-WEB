@@ -1,6 +1,6 @@
 @import './../GLOBALS-STYLES/colors';
 @import './../GLOBALS-STYLES/font.scss';
-@import './../GLOBALS-STYLES/config';
+@import './../GLOBALS-STYLES/_config.scss';
 
 
 * {
@@ -39,10 +39,63 @@ body {
                     font-size: 1.25rem;
                     letter-spacing: 1.1px;
                 }
-            &:hover {
-                color: $hoverNavColor;
-                cursor: pointer;
+                &:hover {
+                    color: $hoverNavColor;
+                    cursor: pointer;
+                }
             }
+        }
+    }
+    // STYLE OF MAIN SECTION
+    main {
+        section {
+            #music-cards {
+                position: absolute;
+                right: 0;
+                width: 90%;
+                display: flex;
+                justify-content: center;
+                flex-flow: row wrap;
+                .card {
+                    position: relative;
+                    width: 200px;
+                    height: 200px;
+                    background-color: pink;
+                    margin: 10px auto 10px;
+                    
+                    .mini_bg {
+                        border-radius: 8px;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        width: 150px;
+                        height: 150px;
+                        background-size: cover;
+                        background-repeat: no-repeat;
+                    }
+                    .overlay {
+                        border-radius: 8px;
+                        position: absolute;
+                        top: 0;
+                        left: 50%;
+                        transform: translate(-50%, 0);
+                        width: 150px;
+                        height: 150px;
+                        
+                        &:hover {
+                            // background-image: url('./../../MEDIAS/research-img/playBtn.svg');
+                            // background-size: 50px;
+                            background-repeat: no-repeat;
+                            background-color: rgba(255, 255, 255, 0.4);
+                        }
+                    }
+                    h3 {
+                        position: absolute;
+                        bottom: 0;
+                        // transform: translate(-50%, -50%);
+                    }
+                }
             }
         }
     }
