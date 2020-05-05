@@ -1,0 +1,49 @@
+@import './../GLOBALS-STYLES/colors';
+@import './../GLOBALS-STYLES/font.scss';
+@import './../GLOBALS-STYLES/config';
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 16px;
+    font-family: $menuFont;
+    
+
+    // HEADER STYLE:
+    header {
+        background-color: $menuColor;
+        .navigation {
+            width: 90%;
+            margin: 0 auto;
+            padding: 10px 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        ul {
+            width: 50%;
+            display: flex;
+            justify-content: space-between;
+            list-style: none;
+            li {
+                font-size: 1.25rem;
+                letter-spacing: 1.1px;
+                color: $navColor;
+                transition: all 0.5s ease;
+                a {
+                    font-size: 1.25rem;
+                    letter-spacing: 1.1px;
+                }
+            &:hover {
+                color: $hoverNavColor;
+                cursor: pointer;
+            }
+            }
+        }
+    }
+}
