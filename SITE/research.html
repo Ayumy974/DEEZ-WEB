@@ -26,21 +26,22 @@
             <div class="music-selection">
                 <label for='sorting-criteria'>Tri par:</label>
                 <select name="criteria" id="criteria">
-                    <option value="album">Album</option>
-                    <option value="album">Album</option>
-                    <option value="artiste">Artiste</option>
-                    <option value="musique">Musique</option>
-                    <option value="les plus populaires">Les plus populaires</option>
-                    <option value="les mieux notés">Les mieux notés</option>
+                    <!-- <option value="album">Album</option> -->
+                    <option  selected="selected" value="album">Album</option>
+                    <option   value="artist">Artiste</option>
+                    <option  value="track">Musique</option>
+                    <option  value="les plus populaires">Les plus populaires</option>
+                    <option  value="les mieux notés">Les mieux notés</option>
                 </select>
             </div>
 
             <!-- RESEARCH COMPONENT -->
             <div class="research">
-                <div class="research_area">
+                <form class="research_area">
                     <img class="glass" src="" alt="">
-                    <input type="text" value="Titre">
-                </div>
+                    <input class="input_research" type="text" value="">
+                    <input type="submit" value="Submit">
+                </form>
             </div>
 
             <!-- ITEMS COMPONENT -->

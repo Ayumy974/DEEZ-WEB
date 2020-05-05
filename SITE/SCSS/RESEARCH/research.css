@@ -62,7 +62,7 @@ body header ul li:hover {
 body main section #music-cards {
   position: absolute;
   right: 0;
-  width: 90%;
+  width: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -76,44 +76,21 @@ body main section #music-cards {
 }
 
 body main section #music-cards .card {
-  position: relative;
-  width: 200px;
-  height: 200px;
+  border-radius: 8px;
+  width: 150px;
+  height: auto;
   background-color: pink;
-  margin: 10px auto 10px;
+  margin: 0 30px 30px 30px;
 }
 
 body main section #music-cards .card .mini_bg {
-  border-radius: 8px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
-  width: 150px;
-  height: 150px;
   background-size: cover;
   background-repeat: no-repeat;
-}
-
-body main section #music-cards .card .overlay {
-  border-radius: 8px;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  -webkit-transform: translate(-50%, 0);
-          transform: translate(-50%, 0);
   width: 150px;
   height: 150px;
 }
 
-body main section #music-cards .card .overlay:hover {
-  background-repeat: no-repeat;
-  background-color: rgba(255, 255, 255, 0.4);
-}
-
-body main section #music-cards .card h3 {
-  position: absolute;
-  bottom: 0;
+body main section #music-cards .card audio {
+  width: 100%;
 }
 /*# sourceMappingURL=research.css.map */
