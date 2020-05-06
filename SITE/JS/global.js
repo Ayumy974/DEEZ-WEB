@@ -1,0 +1,1 @@
+const LS_ID = "mes-musiques-favorites";
