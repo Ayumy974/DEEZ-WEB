@@ -21,7 +21,7 @@
     </header>
 
     <main>
-        <section>
+        <section class="container">
             <!-- SORTING TITLES BY CRITERIA -->
             <div class="music-selection">
                 <label for='sorting-criteria'>Tri par:</label>
@@ -34,18 +34,20 @@
                     <option  value="les mieux notés">Les mieux notés</option>
                 </select>
             </div>
-
-            <!-- RESEARCH COMPONENT -->
-            <div class="research">
-                <form class="research_area">
-                    <img class="glass" src="" alt="">
-                    <input class="input_research" type="text" value="">
-                    <input type="submit" value="Submit">
-                </form>
+            
+            <div class="global_research">
+                <!-- RESEARCH COMPONENT -->
+                <div class="research">
+                    <form class="research_area">
+                        <!-- <img class="glass" src="" alt=""> -->
+                        <input class="input_research" type="text" value="Votre recherche">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+    
+                <!-- ITEMS COMPONENT -->
+                <div id="music-cards"></div>
             </div>
-
-            <!-- ITEMS COMPONENT -->
-            <div id="music-cards"></div>
 
         </section>
     </main>

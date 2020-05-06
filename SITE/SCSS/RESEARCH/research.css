@@ -59,10 +59,46 @@ body header ul li:hover {
   cursor: pointer;
 }
 
-body main section #music-cards {
-  position: absolute;
-  right: 0;
+body main .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body main .container .music-selection {
+  width: 20%;
+  height: 80vh;
+  background-color: #5A6A7A;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main .container .global_research {
   width: 80%;
+}
+
+body main .container .global_research .research {
+  height: 10vh;
+}
+
+body main .container .global_research .research .input_research {
+  border: none;
+  width: 80%;
+  height: 10vh;
+}
+
+body main .container .global_research #music-cards {
+  overflow: scroll;
+  height: 80vh;
+  background-color: #F2F4F8;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -75,7 +111,7 @@ body main section #music-cards {
           flex-flow: row wrap;
 }
 
-body main section #music-cards .card {
+body main .container .global_research #music-cards .card {
   border-radius: 8px;
   width: 150px;
   height: auto;
@@ -83,14 +119,14 @@ body main section #music-cards .card {
   margin: 0 30px 30px 30px;
 }
 
-body main section #music-cards .card .mini_bg {
+body main .container .global_research #music-cards .card .mini_bg {
   background-size: cover;
   background-repeat: no-repeat;
   width: 150px;
   height: 150px;
 }
 
-body main section #music-cards .card audio {
+body main .container .global_research #music-cards .card audio {
   width: 100%;
 }
 /*# sourceMappingURL=research.css.map */

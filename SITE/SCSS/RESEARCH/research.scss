@@ -48,40 +48,51 @@ body {
     }
     // STYLE OF MAIN SECTION
     main {
-        section {
-            #music-cards {
-                position: absolute;
-                right: 0;
-                width: 80%;
+        .container {
+            display: flex;
+            .music-selection {
+                width: 20%;
+                height: 80vh;
+                background-color: $hoverNavColor;
                 display: flex;
-                justify-content: center;
-                flex-flow: row wrap;
-                .card {
-                    border-radius: 8px;
-                    width: 150px;
-                    height: auto;
-                    background-color: pink;
-                    margin: 0 30px 30px 30px;
-                    // margin: 50px auto 30px;
-                    .mini_bg {
-                        background-size: cover;
-                        background-repeat: no-repeat;
+                flex-direction: column;
+                // justify-content: center;
+                align-items: center;
+            }
+            .global_research {
+                width: 80%;
+                .research {
+                    height: 10vh;
+                    .input_research {
+                        border: none;
+                        width: 80%;
+                        height: 10vh;
+                    }
+                }
+
+                #music-cards {
+                    overflow: scroll;
+                    height: 80vh;
+                    background-color: $navColor;
+                    display: flex;
+                    justify-content: center;
+                    flex-flow: row wrap;
+                    .card {
+                        border-radius: 8px;
                         width: 150px;
-                        height: 150px;
+                        height: auto;
+                        background-color: pink;
+                        margin: 0 30px 30px 30px;
+                        .mini_bg {
+                            background-size: cover;
+                            background-repeat: no-repeat;
+                            width: 150px;
+                            height: 150px;
+                        }
+                        audio {
+                            width: 100%;
+                        }
                     }
-                    audio {
-                        width: 100%;
-                    }
-                    // audio {
-                    //     width: 100%;
-                    //     border-radius: none;
-                    // }
-                    
-                    // .playlist {
-                    //     position: absolute;
-                    //     top: 0;
-                        // display: none;
-                    // }
                 }
             }
         }
