@@ -70,14 +70,18 @@
                             data-album = "${element.album.title}" 
                         >
                             <li class='mini_bg' style="background-image: url('${element.album.cover}');"></li>
-                            <li><audio controls src=${element.preview}></audio></li>
-                            <li id='title_music'>Titre:${element.title_short}</li>
-                            <li class='artist-name'>Artiste: ${element.artist.name}</li>
-                            <li class='album-title'>Album:${element.album.title}</li> 
+                            <li><audio preload="auto" controls src=${element.preview}></audio></li>
+                            <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
+                            <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
+                            <li class='album-title'><span>Album: </span>"${element.album.title}"</li> 
                             <button class='favorites'type='button' >Ajout de favoris</button>
                         </ul>
                     `)        
                 })
+                $(function() {
+                    $('audio').audioPlayer();
+                }); 
+                
                 let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
                 // let favoritesArray = [];
                 // Lien entre le bouton cliqué et la musique:
@@ -100,8 +104,8 @@
                         }
                     } 
                 })                
-            })   
-            
+            }) 
+              
         }
         // TODO: pas réussi le tri par popularité...
         // SECOND CONDITION: the most popular (fan)
