@@ -14,17 +14,17 @@
     });
     
     
-    // LOCAL STORAGE: paramétrage, je ne sais pas comment insérer les données
+    // LOCAL STORAGE:
     let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
-    function serviceStorage () {
-        favoritesArray.push({
-            // cover:,
-            musicTitle: musicTitle,
-            artistName: artistName,
-            albumTitle: albumTitle
-        })
-        localStorage.setItem('favorites', JSON.stringify(favoritesArray))
-        } 
+    // function serviceStorage () {
+    //     favoritesArray.push({
+    //         // cover:,
+    //         musicTitle: musicTitle,
+    //         artistName: artistName,
+    //         albumTitle: albumTitle
+    //     })
+    //     localStorage.setItem('favorites', JSON.stringify(favoritesArray))
+    //     } 
     
     // SOUMISSION du formulaire de recherche
         // TODO: 
@@ -62,10 +62,10 @@
                         `
                         <ul class='card' id=${i}>
                             <li class='mini_bg' style="background-image: url('${element.album.cover}');"></li>
-                            <li><audio controls src=${element.preview}></audio></li>
-                            <li id='title_music'>Titre:${element.title_short}</li>
-                            <li class='artist-name'>Artiste: ${element.artist.name}</li>
-                            <li class='album-title'>Album:${element.album.title}</li> 
+                            <li><audio preload="auto" controls src=${element.preview}></audio></li>
+                            <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
+                            <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
+                            <li class='album-title'><span>Album: </span>"${element.album.title}"</li> 
                             <button class='favorites'type='button' >Ajout de favoris</button>
                         </ul>
                     `)        
@@ -77,13 +77,15 @@
                     let btn_index = $('.favorites').index(this);
                     console.log("That was button index: " + btn_index);
                     for (let i = 1; i < $('ul').length ; i++) {
-                        if (i === btn_index +1) {
-                            // console.log($('ul')[i]);
-                            const selectUl = $('ul')[i];
-                            console.log(selectUl);
+                        if (i === btn_index + 1) {
+                            console.log($('ul')[i])
+                            // localStorage.setItem('favorites', JSON.stringify($('ul')[i]));
                         }
                     } 
-                })  
+                }) 
+                $(function() {
+                    $('audio').audioPlayer();
+                });
             })   
             
         }
