@@ -1,6 +1,7 @@
-$primary-color: #444;
 $show-home-image: true;
 $home-image: url(./../../MEDIAS/HP-img/guitariste.jpg);
+$heart-image: url(./../../MEDIAS/icon/heart.svg);
+$red-heart-image: url(./../../MEDIAS/icon/red-heart.svg);
 $background-opacity: 0.65;
 
 @mixin background {
@@ -18,6 +19,37 @@ $background-opacity: 0.65;
                 height: 100%;
                 z-index: -1;
                 background-color: rgba($primary-color, $background-opacity);
+            }
+        }
+    }
+}
+
+@mixin heart-hover {
+    @if $show-home-image {
+        &#mini_bg {
+            border-top-left-radius: 8px;
+            border-top-right-radius: 8px;
+            background: center / contain no-repeat;
+            width: 180px;
+            height: 180px;
+            position: relative;
+            padding-top: 10px;
+            &:after {
+                content: $heart-image;
+                padding: 10px 0 0 10px;
+                cursor: pointer;
+
+            }
+            &:hover:after {
+                border-top-left-radius: 8px;
+                border-top-right-radius: 8px;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 170px;
+                height: 170px;
+                z-index: 0;
+                background-color: rgba(242, 201, 76, 0.45);
             }
         }
     }

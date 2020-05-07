@@ -119,28 +119,44 @@ body main .container .global_research #music-cards .card {
   margin: 0 20px 20px 20px;
 }
 
+body main .container .global_research #music-cards .card li:first-child#mini_bg {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: center / contain no-repeat;
+  width: 180px;
+  height: 180px;
+  position: relative;
+  padding-top: 10px;
+}
+
+body main .container .global_research #music-cards .card li:first-child#mini_bg:after {
+  content: url(./../../MEDIAS/icon/heart.svg);
+  padding: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+body main .container .global_research #music-cards .card li:first-child#mini_bg:hover:after {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  height: 170px;
+  z-index: 0;
+  background-color: rgba(242, 201, 76, 0.45);
+}
+
 body main .container .global_research #music-cards .card li {
-  text-align: center;
   list-style: none;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #545a5f;
   font-style: italic;
   line-height: 1.6;
 }
 
 body main .container .global_research #music-cards .card li span {
+  font-size: 0.875rem;
   color: #5A6A7A;
-}
-
-body main .container .global_research #music-cards .card .mini_bg {
-  border-radius: 8px;
-  background-size: cover;
-  background-repeat: no-repeat;
-  width: 180px;
-  height: 180px;
-}
-
-body main .container .global_research #music-cards .card audio {
-  width: 100%;
 }
 /*# sourceMappingURL=research.css.map */

@@ -56,7 +56,6 @@ body {
                 background-color: $hoverNavColor;
                 display: flex;
                 flex-direction: column;
-                // justify-content: center;
                 align-items: center;
             }
             .global_research {
@@ -83,26 +82,20 @@ body {
                         height: auto;
                         background-color: pink;
                         margin: 0 20px 20px 20px;
+
+                        li:first-child {
+                            @include heart-hover;
+                        }
                         li {
-                            text-align: center;
                             list-style: none;
-                            font-size: 0.875rem;
+                            font-size: 0.75rem;
                             color: #545a5f;
                             font-style: italic;
                             line-height: 1.6;
                             span {
+                                font-size: 0.875rem;
                                 color: $hoverNavColor;
                             }
-                        }
-                        .mini_bg {
-                            border-radius: 8px;
-                            background-size: cover;
-                            background-repeat: no-repeat;
-                            width: 180px;
-                            height: 180px;
-                        }
-                        audio {
-                            width: 100%;
                         }
                     }
                 }

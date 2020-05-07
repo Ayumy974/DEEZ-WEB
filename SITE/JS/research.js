@@ -14,27 +14,18 @@
     });
     
     
-    // LOCAL STORAGE: paramétrage, je ne sais pas comment insérer les données
-    
-    // function serviceStorage () {
-    //     favoritesArray.push({
-    //         // cover:,
-    //         musicTitle: musicTitle,
-    //         artistName: artistName,
-    //         albumTitle: albumTitle
-    //     })
-    //     localStorage.setItem('favorites', JSON.stringify(favoritesArray))
-    //     } 
-    
     // SOUMISSION du formulaire de recherche
-        // TODO: 
+        // TODO 1: Récupérer la valeur du champ de recherche.
+        // TODO 2: Détecter le changement sur l'input select etrécupérer la valeur.
+        // TODO 3: En fonction du critère choisi, requête ajax pour récupérer les données et les afficher.
+        
     $('.research_area').submit((e) => {
         e.preventDefault();
 
-        // Valeur de mon input de recherche qu eje passe à l'url de l'API:
+        // 1- Valeur de mon input de recherche queje passe à l'url de l'API.
         const TITLE = $('.input_research').val();
 
-        // CHAMP SELECT pour le tri que je passe à l'url de l'API
+        // 2 -CHAMP SELECT pour le tri, que je passe à l'url de l'API.
         let selectedCriteria = "";
         $('#criteria').change(function () {
             $("select option:selected").each(function () {
@@ -45,7 +36,8 @@
         console.log(selectedCriteria);
 
         const selectedValue = $("select option:selected").val();
-        // En fonction de la sélection et de la valeur de mon champ, je fais une requête AJAX et j'affiche les résultats.
+
+        // 3- En fonction de la sélection et de la valeur de mon champ, je fais une requête AJAX et j'affiche les résultats.
 
         // FIRST CONDITION: CASE album ou CASE artist ou CASE Music
         if (selectedValue === 'album' || selectedValue === 'artist' || selectedValue === 'track') {
@@ -54,12 +46,12 @@
                 method: 'GET',
                 dataType: 'jsonp'
             })
-            .then(result => {
-                console.log(result);
+                .then(result => {
+                    console.log(result);
 
-                result.data.forEach((element, i) => {
-                    $('#music-cards').append(
-                        `
+                    result.data.forEach((element, i) => {
+                        $('#music-cards').append(
+                            `
                         <ul
                             class='card'
                             id = ${i}  
@@ -67,47 +59,56 @@
                             data-audio = "${element.preview}"
                             data-title = "${element.title_short}" 
                             data-artist = "${element.artist.name}" 
-                            data-album = "${element.album.title}" 
+                            data-title = "${element.album.title}" 
                         >
-                            <li class='mini_bg' style="background-image: url('${element.album.cover}');"></li>
+                            <li id='mini_bg' style="background-image: url('${element.album.cover}');">
+                            </li>
                             <li><audio preload="auto" controls src=${element.preview}></audio></li>
                             <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
                             <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
                             <li class='album-title'><span>Album: </span>"${element.album.title}"</li> 
-                            <button class='favorites'type='button' >Ajout de favoris</button>
+                            <button class='btn_favorites'type='button' >Ajout de favoris</button>
                         </ul>
-                    `)        
-                })
-                $(function() {
-                    $('audio').audioPlayer();
-                }); 
-                
-                let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
-                // let favoritesArray = [];
-                // Lien entre le bouton cliqué et la musique:
-                $('.favorites').on('click', function () {
-                    let btn_index = $('.favorites').index(this);
-                    console.log("That was button index: " + btn_index);
-                    for (let i = 1; i < $('ul').length ; i++) {
-                        if (i === btn_index +1) {
-                            const selectUl = $('ul')[i];
-                            favoritesArray.push({
-                                id: btn_index,
-                                cover: selectUl.dataset.cover,
-                                audio: selectUl.dataset.audio,
-                                title: selectUl.dataset.title,
-                                author: selectUl.dataset.artist,
-                                album: selectUl.album
-                            });
-                            localStorage.setItem("favorites", JSON.stringify(favoritesArray));
-                            
+                    `)
+                    })
+                    $(function () {
+                        $('audio').audioPlayer();
+                    });
+
+                    let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
+                    // 
+                    // let favoritesArray = [];
+                    // Lien entre le bouton cliqué et la musique:
+                    $('.btn_favorites').on('click', function () {
+                        let btn_index = $('.btn_favorites').index(this);
+                        console.log("That was button index: " + btn_index);
+                        const ulArr = $('ul');
+                        for (let i = 1; i < ulArr.length; i++) {
+                            if (i === btn_index + 1) {
+                                const selectUl = $('ul')[i];
+                                favoritesArray.push({
+                                    id: btn_index,
+                                    cover: selectUl.dataset.cover,
+                                    audio: selectUl.dataset.audio,
+                                    title: selectUl.dataset.title,
+                                    author: selectUl.dataset.artist,
+                                    album: selectUl.dataset.album,
+                                });
+                                localStorage.setItem("favorites", JSON.stringify(favoritesArray));
+                                
+                            }
                         }
-                    } 
-                })                
-            }) 
-              
+                    })
+                    // let cache = {};
+                    // favoritesArray = favoritesArray.filter(function(elem,index,array){
+                    //     return cache[elem.id] ? 0 : cache[elem.id] = 1;
+                    // })
+                    
+                    // console.log(JSON.stringify(favoritesArray));
+                }) 
+            .catch( error => console.log(error))
         }
-        // TODO: pas réussi le tri par popularité...
+        
         // SECOND CONDITION: the most popular (fan)
         // else if (selectedValue === 'top') {
         //     $.ajax({
