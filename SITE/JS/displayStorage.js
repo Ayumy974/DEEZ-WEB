@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
                     <ul>
                         <li class='mini_bg' style="background-image: url('${element.cover}');"></li>
                         <li><audio controls src=${element.audio}></audio></li>
-                        <li id='title_music'>Titre:${element.title}</li>
+                        <li id='title_music'>Titre:${element.titleshort}</li>
                         <li class='artist-name'>Artiste: ${element.author}</li>
                         <li class='album-title'>Album:${element.title}</li> 
                         <button class='favorites'type='button' >Ajout de favoris</button>

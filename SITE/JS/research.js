@@ -1,6 +1,32 @@
+ // Création de mon tableau de favoris du local storage:
 
-    jQuery(document).ready(function () {
+function addToFavorite(sender) {
+    let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
+    const musicId = parseInt($(sender).parent().attr('id'));
+    let found = false;
+    favoritesArray.forEach(function (item, index, object) {
+        if (item.id === musicId) {
+            object.splice(index, 1);
+            found = true;
+            }
+        }
+    )
+    if (found === false) {
+        favoritesArray.push({
+            id: musicId,
+            cover: $(sender).parent().data('cover'),
+            audio: $(sender).parent().data('audio'),
+            titleshort: $(sender).parent().data('titleshort'),
+            author: $(sender).parent().data('author'),
+            title: $(sender).parent().data('title'),
+        });
+    }
 
+    localStorage.setItem('favorites', JSON.stringify(favoritesArray));
+    console.log(favoritesArray);
+}
+
+jQuery(document).ready(function () {
     // remettre l'input de recherche à zéro.
     $('.input_research').focus(function () {
         // console.log('changed');
@@ -39,6 +65,15 @@
 
         // 3- En fonction de la sélection et de la valeur de mon champ, je fais une requête AJAX et j'affiche les résultats.
 
+        // Récupérer le local storage: construire un array simple contenant uniquement les id des favoris
+        const music_data = JSON.parse(localStorage.getItem('favorites'));
+        let favoritesIds = [];
+        if (music_data !== null) {
+            favoritesIds = music_data.map(el => {
+                return el.id;
+            });   
+        }
+        console.log(favoritesIds);
         // FIRST CONDITION: CASE album ou CASE artist ou CASE Music
         if (selectedValue === 'album' || selectedValue === 'artist' || selectedValue === 'track') {
             $.ajax({
@@ -49,15 +84,15 @@
                 .then(result => {
                     console.log(result);
 
-                    result.data.forEach((element, i) => {
+                    result.data.forEach( element => {
                         $('#music-cards').append(
                             `
                         <ul
                             class='card'
-                            id = ${i}  
+                            id = ${element.id}  
                             data-cover = "${element.album.cover}"
                             data-audio = "${element.preview}"
-                            data-title = "${element.title_short}" 
+                            data-titleshort = "${element.title_short}" 
                             data-artist = "${element.artist.name}" 
                             data-title = "${element.album.title}" 
                         >
@@ -67,7 +102,7 @@
                             <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
                             <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
                             <li class='album-title'><span>Album: </span>"${element.album.title}"</li> 
-                            <button class='btn_favorites'type='button' >Ajout de favoris</button>
+                            <button onclick="addToFavorite(this)" class='btn_favorites' type='button' >${favoritesIds.includes(element.id) ? 'Supprimer' : 'Ajouter'}</button>
                         </ul>
                     `)
                     })
@@ -76,42 +111,8 @@
                     $(function () {
                         $('audio').audioPlayer();
                     });
-
-                    // Création de mon tableau de favoris du local storage:
-                    let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
-                    
-                    // AU clic sur le bouton, je stocke la musique dans le local storage:
-                    $('.btn_favorites').on('click', function () {
-                        let btn_index = $('.btn_favorites').index(this);
-                        console.log("That was button index: " + btn_index);
-                        const ulArr = $('ul');
-                        for (let i = 1; i < ulArr.length; i++) {
-                            if (i === btn_index + 1) {
-                                const selectUl = $('ul')[i];
-                                favoritesArray.push({
-                                    id: btn_index,
-                                    cover: selectUl.dataset.cover,
-                                    audio: selectUl.dataset.audio,
-                                    title: selectUl.dataset.title,
-                                    author: selectUl.dataset.artist,
-                                    title: selectUl.dataset.album,
-                                });
-                                localStorage.setItem("favorites", JSON.stringify(favoritesArray));
-                                
-                            }
-                        }
-                    })
-                    favoritesArray.forEach(el => {
-                        console.log(el.id)
-                    })
-                    // let cache = {};
-                    // favoritesArray = favoritesArray.filter(function(elem,index,array){
-                    //     return cache[elem.id] ? 0 : cache[elem.id] = 1;
-                    // })
-                    
-                    // console.log(JSON.stringify(favoritesArray));
                 }) 
-            .catch( error => console.log(error))
+            // .catch( error => console.log(error))
         }
         
         // SECOND CONDITION: the most popular (fan)
