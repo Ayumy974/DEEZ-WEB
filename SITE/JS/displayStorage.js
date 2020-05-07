@@ -10,7 +10,7 @@ jQuery(document).ready(function () {
                         <li><audio controls src=${element.audio}></audio></li>
                         <li id='title_music'>Titre:${element.title}</li>
                         <li class='artist-name'>Artiste: ${element.author}</li>
-                        <li class='album-title'>Album:${element.album}</li> 
+                        <li class='album-title'>Album:${element.title}</li> 
                         <button class='favorites'type='button' >Ajout de favoris</button>
                     </ul>
                     `

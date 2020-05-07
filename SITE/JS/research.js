@@ -18,7 +18,7 @@
         // TODO 1: Récupérer la valeur du champ de recherche.
         // TODO 2: Détecter le changement sur l'input select etrécupérer la valeur.
         // TODO 3: En fonction du critère choisi, requête ajax pour récupérer les données et les afficher.
-        
+
     $('.research_area').submit((e) => {
         e.preventDefault();
 
@@ -71,14 +71,16 @@
                         </ul>
                     `)
                     })
+
+                    // Fonction pour le player audio venant d'un plugin:
                     $(function () {
                         $('audio').audioPlayer();
                     });
 
+                    // Création de mon tableau de favoris du local storage:
                     let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
-                    // 
-                    // let favoritesArray = [];
-                    // Lien entre le bouton cliqué et la musique:
+                    
+                    // AU clic sur le bouton, je stocke la musique dans le local storage:
                     $('.btn_favorites').on('click', function () {
                         let btn_index = $('.btn_favorites').index(this);
                         console.log("That was button index: " + btn_index);
@@ -92,12 +94,15 @@
                                     audio: selectUl.dataset.audio,
                                     title: selectUl.dataset.title,
                                     author: selectUl.dataset.artist,
-                                    album: selectUl.dataset.album,
+                                    title: selectUl.dataset.album,
                                 });
                                 localStorage.setItem("favorites", JSON.stringify(favoritesArray));
                                 
                             }
                         }
+                    })
+                    favoritesArray.forEach(el => {
+                        console.log(el.id)
                     })
                     // let cache = {};
                     // favoritesArray = favoritesArray.filter(function(elem,index,array){
