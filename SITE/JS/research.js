@@ -1,17 +1,20 @@
 
     jQuery(document).ready(function () {
 
+    // remettre l'input de recherche à zéro.
     $('.input_research').focus(function () {
-        console.log('changed');
+        // console.log('changed');
         $(this).val('');
     });
 
+    // Effacer les anciennes rechercher au submit qui sont remplacées par les nouvelles:
     $('.research_area').submit((e) => {
         e.preventDefault();
         $('#music-cards').empty();
     });
     
-        
+    
+    // LOCAL STORAGE: paramétrage, je ne sais pas comment insérer les données
     let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
     function serviceStorage () {
         favoritesArray.push({
@@ -22,12 +25,16 @@
         })
         localStorage.setItem('favorites', JSON.stringify(favoritesArray))
         } 
-        
+    
+    // SOUMISSION du formulaire de recherche
+        // TODO: 
     $('.research_area').submit((e) => {
         e.preventDefault();
+
+        // Valeur de mon input de recherche qu eje passe à l'url de l'API:
         const TITLE = $('.input_research').val();
 
-        // Afficher le texte du champ sélectionné:
+        // CHAMP SELECT pour le tri que je passe à l'url de l'API
         let selectedCriteria = "";
         $('#criteria').change(function () {
             $("select option:selected").each(function () {
@@ -36,7 +43,9 @@
         }).change();
     
         console.log(selectedCriteria);
+
         const selectedValue = $("select option:selected").val();
+        // En fonction de la sélection et de la valeur de mon champ, je fais une requête AJAX et j'affiche les résultats.
 
         // FIRST CONDITION: CASE album ou CASE artist ou CASE Music
         if (selectedValue === 'album' || selectedValue === 'artist' || selectedValue === 'track') {
@@ -47,11 +56,6 @@
             })
             .then(result => {
                 console.log(result);
-                // LOCAL STORAGE:
-                
-                console.log(favoritesArray);
-                // localStorage.setItem('favorites', JSON.stringify(favoritesArray))
-                const music_data = JSON.parse(localStorage.getItem('favorites'));
 
                 result.data.forEach((element, i) => {
                     $('#music-cards').append(
@@ -67,29 +71,23 @@
                     `)        
                 })
                 
-
-                // const arrBtn = $('button').get();
-                // let titleMusic = $('.title_music').get();
-                // console.log(titleMusic[0]);
-                // console.log(arrBtn);
-                // console.log(title_index);
+                // Lien entre le bouton cliqué et la musique:
+                console.log($('ul'));
                 $('.favorites').on('click', function () {
-                    const newArr = [...result.data]
                     let btn_index = $('.favorites').index(this);
                     console.log("That was button index: " + btn_index);
-                    for (let i = 0; i < newArr.length; i++) {
-                        console.log(indexOf(i));
-                    }   
-                })
-                
-                // let musicTitle = $('.title_music').text();
-                // let artistName = $('.artist-name').text();
-                // let albumTitle = $('.album-title').text();
-                // console.log(musicTitle);
-            })
-            
+                    for (let i = 1; i < $('ul').length ; i++) {
+                        if (i === btn_index +1) {
+                            // console.log($('ul')[i]);
+                            const selectUl = $('ul')[i];
+                            console.log(selectUl);
+                        }
+                    } 
+                })  
+            })   
             
         }
+        // TODO: pas réussi le tri par popularité...
         // SECOND CONDITION: the most popular (fan)
         // else if (selectedValue === 'top') {
         //     $.ajax({
@@ -111,6 +109,7 @@
         //         `)
         //     })
         // }
+
         // THIRD CONDITION: rank order
         else if (selectedValue === 'rank') {
             $.ajax({
@@ -141,10 +140,6 @@
                 })
             })
         }
-    
-    })
-
-        
-    
+    })   
 })
 
