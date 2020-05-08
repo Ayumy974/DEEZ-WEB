@@ -2,13 +2,10 @@
 @import './../GLOBALS-STYLES/font.scss';
 @import './../GLOBALS-STYLES/config';
 
-
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    
-
 }
 
 body {
@@ -34,18 +31,40 @@ body {
             justify-content: space-between;
             list-style: none;
             li {
-                font-size: 1.25rem;
-                letter-spacing: 1.1px;
-                color: $navColor;
-                transition: all 0.5s ease;
-                a {
-                    font-size: 1.25rem;
-                    letter-spacing: 1.1px;
+                line-height: 30px;
+                display: flex;
+                align-self: start;
+                &.active {
+                    color: $hoverNavColor;
                 }
-            &:hover {
-                color: $hoverNavColor;
-                cursor: pointer;
-            }
+                a {
+                    font-size: 1rem;
+                    transition: all 0.5s ease;
+                    color: $navColor;
+                    text-decoration: none;
+                    letter-spacing: 1.1px;
+                    padding-left: 10px;
+                    &:hover {
+                        color: $hoverNavColor;
+                        cursor: pointer;
+                    }
+                }
+                &:first-child:before {
+                    padding-right: 10px;
+                    content: url('./../../MEDIAS/icon/construction.svg');
+                }
+                &:nth-child(2):before {
+                    content: url('./../../MEDIAS/icon/search.svg');
+                }
+                &:nth-child(2):hover:before {
+                    content: url('./../../MEDIAS/icon/searchh.svg');
+                }
+                &:nth-child(3):before {
+                    content: url('./../../MEDIAS/icon/like.svg');
+                }
+                &:nth-child(3):hover:before {
+                    content: url('./../../MEDIAS/icon/likeh.svg');
+                }
             }
         }
     }
@@ -66,8 +85,7 @@ body {
                 font-size: 1.75rem;
                 color: $navColor;
                 letter-spacing: 1.2px;
-            }
-            
+            }    
         }
     }    
 }

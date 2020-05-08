@@ -15,7 +15,6 @@ jQuery(document).ready(function () {
                     </ul>
                     `
                 )
-                console.log(element.title);
         });
     }
 });

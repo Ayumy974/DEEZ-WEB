@@ -60,21 +60,52 @@ body header ul {
 }
 
 body header ul li {
-  font-size: 1.25rem;
-  letter-spacing: 1.1px;
-  color: #F2F4F8;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+
+body header ul li.active {
+  color: #5A6A7A;
 }
 
 body header ul li a {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #F2F4F8;
+  text-decoration: none;
   letter-spacing: 1.1px;
+  padding-left: 10px;
 }
 
-body header ul li:hover {
+body header ul li a:hover {
   color: #5A6A7A;
   cursor: pointer;
+}
+
+body header ul li:first-child:before {
+  padding-right: 10px;
+  content: url("./../../MEDIAS/icon/construction.svg");
+}
+
+body header ul li:nth-child(2):before {
+  content: url("./../../MEDIAS/icon/search.svg");
+}
+
+body header ul li:nth-child(2):hover:before {
+  content: url("./../../MEDIAS/icon/searchh.svg");
+}
+
+body header ul li:nth-child(3):before {
+  content: url("./../../MEDIAS/icon/like.svg");
+}
+
+body header ul li:nth-child(3):hover:before {
+  content: url("./../../MEDIAS/icon/likeh.svg");
 }
 
 body main {
