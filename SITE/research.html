@@ -30,7 +30,6 @@
             <div class="music-selection">
                 <label for='sorting-criteria'>Tri par:</label>
                 <select name="criteria" id="criteria">
-                    <!-- <option value="album">Album</option> -->
                     <option  selected="selected" value="album">Album</option>
                     <option  value="artist">Artiste</option>
                     <option  value="track">Musique</option>
@@ -41,14 +40,11 @@
             
             <div class="global_research">
                 <!-- RESEARCH COMPONENT -->
-                <div class="research">
-                    <form class="research_area">
-                        <!-- <img class="glass" src="" alt=""> -->
-                        <input class="input_research" type="text" value="Votre recherche">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-    
+                
+                <form class="research_area">
+                    <input type="image" src="./MEDIAS/icon/big-search.svg" alt="Submit">
+                    <input class="input_research" type="text" value="Votre recherche">
+                </form>
                 <!-- ITEMS COMPONENT -->
                 <div id="music-cards"></div>
             </div>

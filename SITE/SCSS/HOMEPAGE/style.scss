@@ -9,10 +9,14 @@
 }
 
 body {
-    // height: auto;
+    height: 100vh;
     font-size: 16px;
     font-family: $menuFont;
     @include background;
+    overflow: hidden;
+    @media only screen and (max-width: 992px) {
+        overflow: auto;
+    }
 
     // HEADER STYLE:
     header {
@@ -20,6 +24,8 @@ body {
             width: 100%;
             background-color: $menuColor;
             position: fixed;
+            top: 0;
+            left: 0;
             z-index: 1;
             margin: 0 auto;
             padding: 0 50px 10px 50px;
@@ -97,12 +103,10 @@ body {
 
     // STYLE OF THE MAIN SECTION:
     main {
-        padding-top: 120px;
-        padding-right: 50px;
+        width: 100%;
+        margin-top: 97px;
         display: flex;
         justify-content: flex-end;
-        align-content: center;
-        flex-direction: row;
         @media only screen and (max-width: 992px) {
             justify-content: center;
         }
@@ -114,11 +118,12 @@ body {
             padding-top: 240px;
         }
         section {
+            margin: 20px 20px 0 0;
             width: 60%;
             border-radius: 8px;
             padding: 18px 10px 0;
             background-color: rgba(0, 0, 0, 0.6);
-            @media only screen and (max-width: 992px) {
+            @media only screen and (max-width: 1220px) {
                 width: 90%;
             }
             @media only screen and (max-width: 576px) {
@@ -137,6 +142,7 @@ body {
                 display: flex;
                 justify-content: center;
                 flex-flow: row wrap;
+                
                 .card {
                     border-radius: 8px;
                     width: 180px;
