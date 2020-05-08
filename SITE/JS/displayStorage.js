@@ -14,12 +14,14 @@ jQuery(document).ready(function () {
             if (index <= 2) { 
                 $(".home_favorites").append(
                         `
-                    <ul class='card'>
+                    <ul class='card' id =${element.id}>
                         <li id='mini_bg' style="background-image: url('${element.cover}');"></li>
                         <li><audio preload="auto" controls src=${element.audio}></audio></li>
                         <li id='title_music'><span>Titre :</span> ${element.titleshort}</li>
                         <li class='artist-name'><span>Artiste :</span> ${element.artist}</li>
-                        <li class='album-title'><span>Album :</span> ${element.title}</li> 
+                        <li class='album-title'><span>Album :</span> ${element.title}</li>
+                        <button onclick="removeFavorite(this)" class='btn_favorites' type='button'>
+                            Supprimer des favoris</button>
                     </ul>
                     `
                 )
