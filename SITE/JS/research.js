@@ -121,29 +121,55 @@
                 })
             }
             
-            // SECOND CONDITION: the most popular (fan)
-            // else if (selectedValue === 'top') {
-            //     $.ajax({
-            //         url: `https://api.deezer.com/search?q=${TITLE}/top&order=${selectedCriteria}&output=jsonp`,
-            //         method: 'GET',
-            //         dataType: 'jsonp'
-            //     })
-            //     console.log(result);
-            //     result.data.forEach(element => {
-            //         $('#music-cards').append(
-            //             `
-            //             <ul class='card'>
-            //                 <div class='mini_bg' style="background-image: url('${element.album.cover}');"></div>
-            //                 <li><audio controls src=${element.preview}></audio></li>
-            //                 <li>Titre:${element.title_short}</li>
-            //                 <li>Artiste: ${element.artist.name}</li>
-            //                 <li>Album:${element.album.title}</li>    
-            //             </ul>
-            //         `)
-            //     })
-            // }
+            // SECOND CONDITION: the most popular (fan): ne fonctionne pas...
+            else if (selectedValue === 'top') {
+                $.ajax({
+                    url: `https://api.deezer.com/search?q=${TITLE}/top&order=${selectedCriteria}&output=jsonp`,
+                    method: 'GET',
+                    dataType: 'jsonp'
+                })
+                
+                .done(result => {
+                    result.data.sort( (a, b) => {
+                        return b.album.fans - a.album.fans
+                    })
 
-            // THIRD CONDITION: rank order: ne fonctionne pas
+                    result.data.forEach(element => {
+                        console.log(element)
+                            $('#music-cards').append(
+                                `
+                                <ul
+                                class='card'
+                                id = ${element.id}  
+                                data-cover = "${element.album.cover}"
+                                data-audio = "${element.preview}"
+                                data-titleshort = "${element.title_short}" 
+                                data-artist = "${element.artist.name}" 
+                                data-title = "${element.album.title}" 
+                            >
+                                <li id='mini_bg' style="background-image: url('${element.album.cover}');">
+                                </li>
+                                <li><audio preload="auto" controls src=${element.preview}></audio></li>
+                                <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
+                                <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
+                                <li class='album-title'><span>Album: </span>"${element.album.title}"</li>
+                                <button onclick="addToFavorite(this)" class='btn_favorites' type='button' >${favoritesIds.includes(element.id) ? 'Supprimer des favoris' : 'Ajouter aux favoris'}</button>
+                            </ul>
+                            `)
+                        })
+                        // Fonction pour le player audio venant d'un plugin:
+                        $(function () {
+                            $('audio').audioPlayer();
+                        });
+                })
+                .fail(function(xhr, status, error) {
+                    //Ajax request failed.
+                    var errorMessage = xhr.status + ': ' + xhr.statusText
+                    alert('Error - ' + errorMessage);
+                })
+            }
+
+            // THIRD CONDITION: rank
             else if (selectedValue === 'rank') {
                 $.ajax({
                     url: `https://api.deezer.com/search?q=${TITLE}&order=${selectedCriteria}&output=jsonp`,
@@ -155,7 +181,7 @@
                         return a.rank - b.rank
                     })
 
-                    result.data.forEach( (element, i) => {
+                    result.data.forEach( element => {
                             $('#music-cards').append(
                                 `
                                 <ul
@@ -187,7 +213,7 @@
                     //Ajax request failed.
                     var errorMessage = xhr.status + ': ' + xhr.statusText
                     alert('Error - ' + errorMessage);
-            })
+                })
             }
         })   
     })
