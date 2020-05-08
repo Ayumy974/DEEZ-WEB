@@ -13,7 +13,6 @@ body {
 }
 
 body header .navigation {
-  height: 17vh;
   background-color: rgba(242, 201, 76, 0.85);
   position: fixed;
   top: 0;
@@ -153,15 +152,11 @@ body header ul li:nth-child(3):hover:before {
   content: url("./../../MEDIAS/icon/likeh.svg");
 }
 
-body main {
-  margin-top: 97px;
-}
-
 body main .container .music-selection {
   position: fixed;
   left: 0;
-  top: 17vh;
-  height: 84vh;
+  top: 97px;
+  height: 87vh;
   width: 20%;
   background-color: #5A6A7A;
   display: -webkit-box;
@@ -233,7 +228,7 @@ body main .container .global_research .research_area .input_research {
 body main .container .global_research #music-cards {
   overflow: scroll;
   padding-top: 30px;
-  height: 77vh;
+  height: 79vh;
   background-color: #F2F4F8;
   display: -webkit-box;
   display: -ms-flexbox;

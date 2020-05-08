@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deez Web</title>
-    <link rel="stylesheet" href="./SCSS/RESEARCH/research.css">
+    <link rel="stylesheet" href="./SCSS/FAVORITES/favorites.css">
     <link rel="stylesheet" href="./CSS/audioplayer.css">
 	<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 
@@ -18,8 +18,8 @@
             <img class="logoDW" src="./MEDIAS/HP-img/logoDW1.png" alt="logo">
             <ul>
                 <li><a href="index.html">Accueil</a></li>
-                <li class="active">Rechercher un titre</li>
-                <li><a href="bookmarks.html">Mes favoris</a></li>
+                <li><a href="bookmarks.html">Rechercher un titre</a></li>
+                <li class="active">Mes favoris</li>
             </ul>
         </nav>
     </header>
@@ -27,9 +27,13 @@
     <main>
         <section class="container">
             <!-- SORTING TITLES BY CRITERIA -->
-            <h1>Mas favoris</h1>
-            <div id="music-cards"></div>
-
+            <div class="music-selection">
+                <img src="./MEDIAS/icon/big-heart.svg" alt="">
+            </div>
+            <div class="global_research">
+                <h1>Mes favoris</h1>
+                <div id="music-cards"></div>
+            </div>
         </section>
     </main>
     <footer>

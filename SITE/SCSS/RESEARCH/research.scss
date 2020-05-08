@@ -17,7 +17,7 @@ body {
     // HEADER STYLE:
     header {
         .navigation {
-            height: 17vh;
+            // height: 17vh;
             background-color: $menuColor;
             position: fixed;
             top: 0;
@@ -104,15 +104,13 @@ body {
 
     // STYLE OF MAIN SECTION
     main {
-        margin-top: 97px;
+        // margin-top: 97px;
         .container {
-            // display: flex;
-            // flex-direction: column;
             .music-selection {
                 position: fixed;
                 left: 0;
-                top: 17vh;
-                height: 84vh;
+                top: 97px;
+                height: 87vh;
                 width: 20%;
                 background-color: $hoverNavColor;
                 display: flex;
@@ -165,7 +163,7 @@ body {
                 #music-cards {
                     overflow: scroll;
                     padding-top: 30px;
-                    height: 77vh;
+                    height: 79vh;
                     background-color: $navColor;
                     display: flex;
                     justify-content: center;
