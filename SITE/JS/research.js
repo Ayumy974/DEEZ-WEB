@@ -143,35 +143,51 @@
             //     })
             // }
 
-            // THIRD CONDITION: rank order
+            // THIRD CONDITION: rank order: ne fonctionne pas
             else if (selectedValue === 'rank') {
                 $.ajax({
                     url: `https://api.deezer.com/search?q=${TITLE}&order=${selectedCriteria}&output=jsonp`,
                     method: 'GET',
                     dataType: 'jsonp'
                 })
-                .then(result => {
-                    const popularMusic = result.data.map(music => music.rank);
-                    console.log(popularMusic);
-                    const sortArr = popularMusic.sort(function (a, b) { return a - b }); // tri par ordre croissant
-                    console.log(sortArr);
+                .done(result => {
+                    result.data.sort( (a, b) => {
+                        return a.rank - b.rank
+                    })
+
                     result.data.forEach( (element, i) => {
-                        console.log(element.rank = sortArr[i]);
-                        console.log(result.data);
-                        if (element.rank = sortArr[i]) {
                             $('#music-cards').append(
                                 `
-                                <ul class='card'>
-                                    <div class='mini_bg' style="background-image: url('${element.album.cover}');"></div>
-                                    <li><audio controls src=${element.preview}></audio></li>
-                                    <li>Titre:${element.title_short}</li>
-                                    <li>Artiste: ${element.artist.name}</li>
-                                    <li>Album:${element.album.title}</li>    
-                                </ul>
+                                <ul
+                                class='card'
+                                id = ${element.id}  
+                                data-cover = "${element.album.cover}"
+                                data-audio = "${element.preview}"
+                                data-titleshort = "${element.title_short}" 
+                                data-artist = "${element.artist.name}" 
+                                data-title = "${element.album.title}" 
+                            >
+                                <li id='mini_bg' style="background-image: url('${element.album.cover}');">
+                                </li>
+                                <li><audio preload="auto" controls src=${element.preview}></audio></li>
+                                <li id='title_music'><span>Titre: </span>"${element.title_short}"</li>
+                                <li class='artist-name'><span>Artiste: </span>"${element.artist.name}"</li>
+                                <li class='album-title'><span>Album: </span>"${element.album.title}"</li>
+                                <li>Rang: ${element.rank}</li>
+                                <button onclick="addToFavorite(this)" class='btn_favorites' type='button' >${favoritesIds.includes(element.id) ? 'Supprimer des favoris' : 'Ajouter aux favoris'}</button>
+                            </ul>
                             `)
-                        }
-                    })
+                        })
+                        // Fonction pour le player audio venant d'un plugin:
+                        $(function () {
+                            $('audio').audioPlayer();
+                        });
                 })
+                .fail(function(xhr, status, error) {
+                    //Ajax request failed.
+                    var errorMessage = xhr.status + ': ' + xhr.statusText
+                    alert('Error - ' + errorMessage);
+            })
             }
         })   
     })
