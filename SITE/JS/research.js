@@ -83,7 +83,7 @@
                     method: 'GET',
                     dataType: 'jsonp'
                 })
-                    .then(result => {
+                    .done(result => {
                         console.log(result);
 
                         result.data.forEach( element => {
@@ -114,7 +114,11 @@
                             $('audio').audioPlayer();
                         });
                     }) 
-                // .catch( error => console.log(error))
+                    .fail(function(xhr, status, error) {
+                        //Ajax request failed.
+                        var errorMessage = xhr.status + ': ' + xhr.statusText
+                        alert('Error - ' + errorMessage);
+                })
             }
             
             // SECOND CONDITION: the most popular (fan)

@@ -26,6 +26,7 @@ body header .navigation {
   left: 0;
   z-index: 1;
   width: 100%;
+  height: 17vh;
   margin: 0 auto;
   padding: 0 50px 10px 50px;
   display: -webkit-box;
@@ -39,12 +40,19 @@ body header .navigation {
           justify-content: space-between;
 }
 
+@media only screen and (max-width: 992px) {
+  body header .navigation {
+    padding: 0;
+  }
+}
+
 @media only screen and (max-width: 768px) {
   body header .navigation {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
     height: 150px;
+    padding: 0;
   }
 }
 
@@ -186,7 +194,7 @@ body main {
 body main .container .music-selection {
   position: fixed;
   left: 0;
-  top: 97px;
+  top: 17vh;
   height: 87vh;
   width: 20%;
   background-color: #5A6A7A;
