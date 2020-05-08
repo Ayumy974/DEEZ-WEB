@@ -153,6 +153,10 @@ body header ul li:nth-child(3):before {
   content: url("./../../MEDIAS/icon/likeh.svg");
 }
 
+body main {
+  margin-top: 97px;
+}
+
 body main .container .music-selection {
   position: fixed;
   left: 0;
@@ -200,7 +204,7 @@ body main .container .global_research h1 {
   margin: 20px 0;
 }
 
-body main .container .global_research #music-cards {
+body main .container .global_research #fav_music_cards {
   overflow: scroll;
   padding-top: 30px;
   height: 76vh;
@@ -218,12 +222,12 @@ body main .container .global_research #music-cards {
 }
 
 @media screen and (max-width: 600px) {
-  body main .container .global_research #music-cards {
+  body main .container .global_research #fav_music_cards {
     width: 100%;
   }
 }
 
-body main .container .global_research #music-cards .card {
+body main .container .global_research #fav_music_cards .card {
   width: 180px;
   height: auto;
   margin: 0 20px 50px 20px;
@@ -234,12 +238,9 @@ body main .container .global_research #music-cards .card {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
-body main .container .global_research #music-cards .card li {
+body main .container .global_research #fav_music_cards .card li {
   text-align: center;
   list-style: none;
   font-size: 0.75rem;
@@ -248,12 +249,12 @@ body main .container .global_research #music-cards .card li {
   line-height: 1.6;
 }
 
-body main .container .global_research #music-cards .card li span {
+body main .container .global_research #fav_music_cards .card li span {
   font-size: 0.875rem;
   color: #232c32;
 }
 
-body main .container .global_research #music-cards .card li:first-child#mini_bg {
+body main .container .global_research #fav_music_cards .card li:first-child#mini_bg {
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
   background: center / contain no-repeat;
@@ -263,7 +264,7 @@ body main .container .global_research #music-cards .card li:first-child#mini_bg 
   padding-top: 10px;
 }
 
-body main .container .global_research #music-cards .card li:first-child#mini_bg:hover:after {
+body main .container .global_research #fav_music_cards .card li:first-child#mini_bg:hover:after {
   content: "";
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
@@ -276,11 +277,11 @@ body main .container .global_research #music-cards .card li:first-child#mini_bg:
   background-color: rgba(242, 201, 76, 0.45);
 }
 
-body main .container .global_research #music-cards .card li:nth-child(3) {
+body main .container .global_research #fav_music_cards .card li:nth-child(3) {
   margin-top: 10px;
 }
 
-body main .container .global_research #music-cards .card .btn_favorites {
+body main .container .global_research #fav_music_cards .card .btn_favorites {
   background-color: rgba(242, 201, 76, 0.45);
   width: 100%;
   border: none;
@@ -293,7 +294,7 @@ body main .container .global_research #music-cards .card .btn_favorites {
   transition: all 0.5s ease-in;
 }
 
-body main .container .global_research #music-cards .card .btn_favorites:hover {
+body main .container .global_research #fav_music_cards .card .btn_favorites:hover {
   color: #F2F4F8;
   -webkit-transform: translateY(-2px);
           transform: translateY(-2px);

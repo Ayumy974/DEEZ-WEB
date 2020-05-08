@@ -1,6 +1,5 @@
-/*
-	AUTHOR: Osvaldas Valutis, www.osvaldas.info
-*/
+// PLUGIN JQUERY AUDIO PLAYER:
+
 (function($, window, document, undefined) {
     var isTouch = 'ontouchstart' in window,
         eStart = isTouch ? 'touchstart' : 'mousedown',

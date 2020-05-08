@@ -259,9 +259,6 @@ body main .container .global_research #music-cards .card {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
 body main .container .global_research #music-cards .card li {

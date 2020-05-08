@@ -103,6 +103,7 @@ body {
 
     // STYLE OF MAIN SECTION
     main {
+        margin-top: 97px;
         .container {
             .music-selection {
                 position: fixed;
@@ -138,7 +139,7 @@ body {
                     color: $hoverNavColor;
                     margin: 20px 0;
                 }
-                #music-cards {
+                #fav_music_cards {
                     overflow: scroll;
                     padding-top: 30px;
                     height: 76vh;
@@ -155,7 +156,7 @@ body {
                         margin: 0 20px 50px 20px;
                         display: flex;
                         flex-direction: column;
-                        justify-content: space-between;
+                        // justify-content: space-between;
 
                         li {
                             text-align: center;

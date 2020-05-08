@@ -24,9 +24,9 @@
             $(sender).text('Supprimer des favoris');
                 
         } else { $(sender).text('Ajouter aux favoris'); }
-    localStorage.setItem('favorites', JSON.stringify(favoritesArray));
-    console.log(favoritesArray);
-}
+        localStorage.setItem('favorites', JSON.stringify(favoritesArray));
+        console.log(favoritesArray);
+    }
 
     // Utilisation de jQuery pour la requête AJAX vers l'API Deezer.
     jQuery(document).ready(function () {
