@@ -11,23 +11,39 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-body header {
-  background-color: rgba(242, 201, 76, 0.85);
-}
-
 body header .navigation {
-  width: 90%;
+  background-color: rgba(242, 201, 76, 0.85);
+  position: fixed;
+  z-index: 1;
+  width: 100%;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 0 50px 10px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+@media only screen and (max-width: 768px) {
+  body header .navigation {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body header .navigation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 body header ul {
@@ -35,39 +51,113 @@ body header ul {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   list-style: none;
+  padding-bottom: 8px;
+}
+
+@media only screen and (max-width: 992px) {
+  body header ul {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body header ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 40%;
+    padding: 30px 0 20px 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body header ul {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body header ul {
+    width: 50%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
 }
 
 body header ul li {
-  font-size: 1.25rem;
-  letter-spacing: 1.1px;
-  color: #F2F4F8;
-  -webkit-transition: all 0.5s ease;
-  transition: all 0.5s ease;
+  line-height: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: start;
+      align-self: start;
+}
+
+body header ul li.active {
+  color: #5A6A7A;
 }
 
 body header ul li a {
-  font-size: 1.25rem;
+  font-size: 1rem;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  color: #F2F4F8;
+  text-decoration: none;
   letter-spacing: 1.1px;
+  padding-left: 10px;
 }
 
-body header ul li:hover {
+body header ul li a:hover {
   color: #5A6A7A;
   cursor: pointer;
 }
 
+body header ul li:first-child:before {
+  padding-right: 10px;
+  content: url("./../../MEDIAS/icon/constructionh.svg");
+}
+
+body header ul li:first-child:hover:before {
+  padding-right: 10px;
+  content: url("./../../MEDIAS/icon/construction.svg");
+}
+
+body header ul li:nth-child(2):before {
+  padding-right: 10px;
+  content: url("./../../MEDIAS/icon/searchh.svg");
+}
+
+body header ul li:nth-child(3):before {
+  content: url("./../../MEDIAS/icon/like.svg");
+}
+
+body header ul li:nth-child(3):hover:before {
+  content: url("./../../MEDIAS/icon/likeh.svg");
+}
+
 body main .container {
+  position: fixed;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
 body main .container .music-selection {
+  margin-top: 97px;
   width: 20%;
-  height: 80vh;
   background-color: #5A6A7A;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -82,6 +172,7 @@ body main .container .music-selection {
 }
 
 body main .container .global_research {
+  margin-top: 97px;
   width: 80%;
 }
 
@@ -96,7 +187,6 @@ body main .container .global_research .research .input_research {
 }
 
 body main .container .global_research #music-cards {
-  overflow: scroll;
   height: 80vh;
   background-color: #F2F4F8;
   display: -webkit-box;

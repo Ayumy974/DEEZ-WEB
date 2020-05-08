@@ -7,15 +7,15 @@
 }
 
 body {
-  height: 100vh;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
 }
 
 body#bg-image {
+  position: relative;
   background: url(./../../MEDIAS/HP-img/guitariste.jpg);
   background-size: cover;
-  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 body#bg-image:after {
@@ -29,37 +29,92 @@ body#bg-image:after {
   background-color: rgba(68, 68, 68, 0.65);
 }
 
-body header {
-  background-color: rgba(242, 201, 76, 0.85);
-}
-
 body header .navigation {
-  width: 90%;
+  width: 100%;
+  background-color: rgba(242, 201, 76, 0.85);
+  position: fixed;
+  z-index: 1;
   margin: 0 auto;
-  padding: 10px 0;
+  padding: 0 50px 10px 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
 
-body header ul {
+@media only screen and (max-width: 768px) {
+  body header .navigation {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body header .navigation {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+}
+
+body header .navigation ul {
   width: 50%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
   list-style: none;
 }
 
-body header ul li {
+@media only screen and (max-width: 992px) {
+  body header .navigation ul {
+    width: 80%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body header .navigation ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    width: 40%;
+    padding: 30px 0 20px 0;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body header .navigation ul {
+    width: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body header .navigation ul {
+    width: 50%;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+body header .navigation ul li {
   line-height: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -68,11 +123,11 @@ body header ul li {
       align-self: start;
 }
 
-body header ul li.active {
+body header .navigation ul li.active {
   color: #5A6A7A;
 }
 
-body header ul li a {
+body header .navigation ul li a {
   font-size: 1rem;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
@@ -82,48 +137,88 @@ body header ul li a {
   padding-left: 10px;
 }
 
-body header ul li a:hover {
+body header .navigation ul li a:hover {
   color: #5A6A7A;
   cursor: pointer;
 }
 
-body header ul li:first-child:before {
+body header .navigation ul li:first-child:before {
   padding-right: 10px;
   content: url("./../../MEDIAS/icon/construction.svg");
 }
 
-body header ul li:nth-child(2):before {
+body header .navigation ul li:nth-child(2):before {
   content: url("./../../MEDIAS/icon/search.svg");
 }
 
-body header ul li:nth-child(2):hover:before {
+body header .navigation ul li:nth-child(2):hover:before {
   content: url("./../../MEDIAS/icon/searchh.svg");
 }
 
-body header ul li:nth-child(3):before {
+body header .navigation ul li:nth-child(3):before {
   content: url("./../../MEDIAS/icon/like.svg");
 }
 
-body header ul li:nth-child(3):hover:before {
+body header .navigation ul li:nth-child(3):hover:before {
   content: url("./../../MEDIAS/icon/likeh.svg");
 }
 
 body main {
-  width: 90%;
-  margin-top: 50px;
+  padding-top: 120px;
+  padding-right: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+@media only screen and (max-width: 992px) {
+  body main {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  body main {
+    padding-top: 200px;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body main {
+    width: 100%;
+    padding-top: 240px;
+  }
 }
 
 body main section {
-  width: 40%;
+  width: 60%;
   border-radius: 8px;
-  padding: 20px 10px;
-  background-color: rgba(0, 0, 0, 0.3);
+  padding: 18px 10px 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 992px) {
+  body main section {
+    width: 90%;
+  }
+}
+
+@media only screen and (max-width: 576px) {
+  body main section {
+    width: 90%;
+    margin: 0 auto;
+  }
 }
 
 body main section h1 {
@@ -131,5 +226,74 @@ body main section h1 {
   font-size: 1.75rem;
   color: #F2F4F8;
   letter-spacing: 1.2px;
+}
+
+body main section .home_favorites {
+  margin-top: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+body main section .home_favorites .card {
+  border-radius: 8px;
+  width: 180px;
+  height: auto;
+  margin: 0 20px 20px 20px;
+}
+
+body main section .home_favorites .card li:first-child#mini_bg {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  background: center / contain no-repeat;
+  width: 180px;
+  height: 180px;
+  position: relative;
+  padding-top: 10px;
+}
+
+body main section .home_favorites .card li:first-child#mini_bg:after {
+  content: url(./../../MEDIAS/icon/heart.svg);
+  padding: 10px 0 0 10px;
+  cursor: pointer;
+}
+
+body main section .home_favorites .card li:first-child#mini_bg:hover:after {
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 170px;
+  height: 170px;
+  z-index: 0;
+  background-color: rgba(242, 201, 76, 0.45);
+}
+
+body main section .home_favorites .card li {
+  list-style: none;
+  font-size: 0.75rem;
+  color: #c4ccd3;
+  font-style: italic;
+  line-height: 1.6;
+  letter-spacing: 0.9px;
+}
+
+body main section .home_favorites .card li span {
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding-right: 10px;
+  color: #F2F4F8;
+}
+
+body main section .home_favorites .card li:nth-child(3) {
+  margin-top: 15px;
 }
 /*# sourceMappingURL=style.css.map */
