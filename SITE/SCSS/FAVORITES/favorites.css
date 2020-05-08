@@ -10,6 +10,13 @@ body {
   height: 100vh;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    overflow: auto;
+  }
 }
 
 body header .navigation {
@@ -43,10 +50,15 @@ body header .navigation {
 
 @media only screen and (max-width: 576px) {
   body header .navigation {
+    padding: 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 37vh;
   }
 }
 
@@ -80,17 +92,18 @@ body header ul {
 
 @media only screen and (max-width: 576px) {
   body header ul {
-    width: 100%;
+    width: 90%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding: 0;
   }
 }
 
 @media only screen and (max-width: 480px) {
   body header ul {
-    width: 50%;
+    width: 70%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -98,6 +111,7 @@ body header ul {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding: 0;
   }
 }
 
@@ -108,6 +122,12 @@ body header ul li {
   display: flex;
   -ms-flex-item-align: start;
       align-self: start;
+}
+
+@media only screen and (max-width: 576px) {
+  body header ul li {
+    padding: 0;
+  }
 }
 
 body header ul li.active {
@@ -127,6 +147,12 @@ body header ul li a {
 body header ul li a:hover {
   color: #5A6A7A;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  body header ul li a {
+    padding: 0;
+  }
 }
 
 body header ul li:first-child:before {
@@ -172,11 +198,17 @@ body main .container .music-selection {
           justify-content: center;
 }
 
+@media only screen and (max-width: 768px) {
+  body main .container .music-selection {
+    top: 26vh;
+  }
+}
+
 @media screen and (max-width: 600px) {
   body main .container .music-selection {
     width: 100%;
-    height: 20vh;
-    top: 26vh;
+    height: 10vh;
+    top: 37vh;
   }
 }
 
@@ -185,6 +217,12 @@ body main .container .global_research {
   position: fixed;
   left: 20%;
   top: 17vh;
+}
+
+@media only screen and (max-width: 768px) {
+  body main .container .global_research {
+    top: 26vh;
+  }
 }
 
 @media screen and (max-width: 600px) {

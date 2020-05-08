@@ -1,7 +1,5 @@
 
-// Implémentation de la fonction addToFavorite
-    // LOCALSTORAGE:
-
+    // La fonction se répète dans favorite.js: dans l'idée exporter avec les modules.
     function addToFavorite(sender) {
         let favoritesArray = localStorage.getItem('favorites') ? JSON.parse(localStorage.getItem('favorites')) : [];
         const musicId = parseInt($(sender).parent().attr('id'));

@@ -10,6 +10,13 @@ body {
   height: 100vh;
   font-size: 16px;
   font-family: "Roboto", sans-serif;
+  overflow: hidden;
+}
+
+@media only screen and (max-width: 992px) {
+  body {
+    overflow: auto;
+  }
 }
 
 body header .navigation {
@@ -19,6 +26,7 @@ body header .navigation {
   left: 0;
   z-index: 1;
   width: 100%;
+  height: 17vh;
   margin: 0 auto;
   padding: 0 50px 10px 50px;
   display: -webkit-box;
@@ -43,10 +51,15 @@ body header .navigation {
 
 @media only screen and (max-width: 576px) {
   body header .navigation {
+    padding: 0;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    height: 37vh;
   }
 }
 
@@ -80,17 +93,18 @@ body header ul {
 
 @media only screen and (max-width: 576px) {
   body header ul {
-    width: 100%;
+    width: 90%;
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+    padding: 0;
   }
 }
 
 @media only screen and (max-width: 480px) {
   body header ul {
-    width: 50%;
+    width: 70%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -98,6 +112,7 @@ body header ul {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding: 0;
   }
 }
 
@@ -114,6 +129,12 @@ body header ul li.active {
   color: #5A6A7A;
 }
 
+@media only screen and (max-width: 576px) {
+  body header ul li {
+    padding: 0;
+  }
+}
+
 body header ul li a {
   font-size: 1rem;
   -webkit-transition: all 0.5s ease;
@@ -127,6 +148,12 @@ body header ul li a {
 body header ul li a:hover {
   color: #5A6A7A;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  body header ul li a {
+    padding: 0;
+  }
 }
 
 body header ul li:first-child:before {
@@ -155,7 +182,7 @@ body header ul li:nth-child(3):hover:before {
 body main .container .music-selection {
   position: fixed;
   left: 0;
-  top: 97px;
+  top: 17vh;
   height: 87vh;
   width: 20%;
   background-color: #5A6A7A;
@@ -171,11 +198,17 @@ body main .container .music-selection {
           align-items: center;
 }
 
+@media only screen and (max-width: 768px) {
+  body main .container .music-selection {
+    top: 26vh;
+  }
+}
+
 @media screen and (max-width: 600px) {
   body main .container .music-selection {
     width: 100%;
     height: 20vh;
-    top: 26vh;
+    top: 37vh;
   }
 }
 
@@ -201,11 +234,17 @@ body main .container .global_research {
   top: 17vh;
 }
 
+@media only screen and (max-width: 768px) {
+  body main .container .global_research {
+    top: 26vh;
+  }
+}
+
 @media screen and (max-width: 600px) {
   body main .container .global_research {
     width: 100%;
     height: 20vh;
-    top: 46vh;
+    top: 57vh;
     left: 0;
   }
 }

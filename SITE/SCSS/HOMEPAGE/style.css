@@ -75,6 +75,7 @@ body header .navigation {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
+    padding: 0;
   }
 }
 
@@ -100,7 +101,7 @@ body header .navigation ul {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: 40%;
+    width: 70%;
     padding: 30px 0 20px 0;
   }
 }
@@ -117,7 +118,7 @@ body header .navigation ul {
 
 @media only screen and (max-width: 480px) {
   body header .navigation ul {
-    width: 50%;
+    width: 70%;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
@@ -198,19 +199,26 @@ body main {
 
 @media only screen and (max-width: 768px) {
   body main {
-    padding-top: 200px;
+    padding-top: 100px;
   }
 }
 
 @media only screen and (max-width: 576px) {
   body main {
     width: 100%;
-    padding-top: 240px;
+    padding-top: 130px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  body main {
+    width: 100%;
+    padding-top: 220px;
   }
 }
 
 body main section {
-  margin: 20px 20px 0 0;
+  margin: 30px 20px 0 0;
   width: 60%;
   border-radius: 8px;
   padding: 18px 10px 0;
